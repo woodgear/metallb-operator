@@ -60,8 +60,8 @@ spec:
   hostPorts:
     - max: {{.MetricsPort}}
       min: {{.MetricsPort}}
-    - max: 7946
-      min: 7946
+    - max: {{.MLBindPort}}
+      min: {{.MLBindPort}}
   privileged: true
   readOnlyRootFilesystem: true
   requiredDropCapabilities:
@@ -215,9 +215,9 @@ spec:
           ports:
             - containerPort: {{.MetricsPort}}
               name: monitoring
-            - containerPort: 7946
+            - containerPort: {{.MLBindPort}}
               name: memberlist-tcp
-            - containerPort: 7946
+            - containerPort: {{.MLBindPort}}
               name: memberlist-udp
               protocol: UDP
           readinessProbe:
